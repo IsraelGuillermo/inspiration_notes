@@ -2,3 +2,11 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+.btn-primary {
+  min-width: 10rem;
+}
+
+.container {
+  margin-bottom: 3em;
+}

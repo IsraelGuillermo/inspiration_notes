@@ -15,6 +15,7 @@ searchBtn.addEventListener('click', () => {
       pTag.classList.add('"blockquote-footer"');
       h1.append(randomizedQuote.text);
       pTag.append(randomizedQuote.author);
+      randomQuote.classList.add('p-2');
       randomQuote.append(h1, pTag);
     });
   randomQuote.innerHTML = '';
