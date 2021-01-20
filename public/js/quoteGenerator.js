@@ -4,17 +4,20 @@ const h1 = document.createElement('h1');
 const pTag = document.createElement('p');
 
 searchBtn.addEventListener('click', () => {
-  randomQuote.innerHTML = '';
-  h1.innerHTML = '';
-  pTag.innerHTML = '';
   fetch('https://type.fit/api/quotes')
     .then((response) => response.json())
     .then((data) => {
       let randomizedQuote = data[Math.floor(Math.random() * data.length)];
-
+      if (randomizedQuote.author === null) {
+        return randomizedQuote.author === 'unknow';
+      }
+      h1.classList.add('card-text');
+      pTag.classList.add('"blockquote-footer"');
       h1.append(randomizedQuote.text);
       pTag.append(randomizedQuote.author);
-
       randomQuote.append(h1, pTag);
     });
+  randomQuote.innerHTML = '';
+  h1.innerHTML = '';
+  pTag.innerHTML = '';
 });
